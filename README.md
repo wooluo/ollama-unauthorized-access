@@ -1,6 +1,8 @@
 # ollama-unauthorized-access
 
 ```
+ollama git:(main) ✗ source venv/bin/activate
+
 (venv) ➜  ollama git:(main) ✗ python main.py -h       
 usage: main.py [-h] [--endpoint ENDPOINT] [--max-workers MAX_WORKERS] [--no-color] urls_file
 
