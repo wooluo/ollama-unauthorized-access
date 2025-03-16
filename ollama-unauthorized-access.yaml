@@ -1,0 +1,32 @@
+id: ollama-unauthorized-access
+
+info:
+  name: Ollama Unauthorized Access
+  author: wooluo
+  severity: high
+  description: Check if the Ollama service on port 11434 has unauthorized access to the /v1/models endpoint and detect if 70b or 671b models are present.
+  reference:
+    - https://example.com # 可以添加相关参考链接
+  tags: ollama,unauthorized,port11434
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/v1/models"
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: regex
+        part: body
+        regex:
+          - '"object"\s*:\s*"list".*"object"\s*:\s*"model"'
+        condition: and
+      - type: regex
+        part: body
+        regex:
+          - '"id":.*(70b|671b)'
+        condition: or
