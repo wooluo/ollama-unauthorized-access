@@ -1,5 +1,6 @@
 # ollama-unauthorized-access
 
+通过收集ollama默认开放端口，然后就可以探测含有哪些模型，因默认配置没有限制，导致可以未授权访问使用，算力会被他人使用。
 ```
 ollama git:(main) ✗ source venv/bin/activate
 
@@ -25,6 +26,7 @@ options:
   ```
 python main.py ip.txt --endpoint /v1/models
   ```
+![image](https://github.com/user-attachments/assets/c0c2b3df-281d-4c1c-8996-b119b06e9928)
 
 可以通过模型连接工具就可以调用对方的模型了，相当于免费使用算力了。
 
