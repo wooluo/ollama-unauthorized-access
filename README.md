@@ -19,9 +19,11 @@ options:
   ```
 
 
-使用探测未限制ollama模型
+使用脚本探测未限制ollama模型
   ```
 python main.py ip.txt --endpoint /v1/models
   ```
+
+可以通过模型连接工具就可以调用对方的模型了，相当于免费使用算力了。
 
   
